@@ -17,9 +17,10 @@ export class AdminLayoutComponent implements OnInit {
   constructor( public location: Location, private router: Router) {}
 
   ngOnInit() {
-    console.log(this.router)
+      if(localStorage.getItem('connected') != 'true') {
+          this.router.navigate(['./login']);
+      }
       const isWindows = navigator.platform.indexOf('Win') > -1 ? true : false;
-
       if (isWindows) {
           // if we are on windows OS we activate the perfectScrollbar function
 

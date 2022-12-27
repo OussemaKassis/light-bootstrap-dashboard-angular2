@@ -12,6 +12,8 @@ import { SidebarModule } from './sidebar/sidebar.module';
 import { AppComponent } from './app.component';
 
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
+import { LoginComponent } from './auth/login/login/login.component';
+import { RegisterComponent } from './auth/register/register/register.component';
 
 @NgModule({
   imports: [
@@ -26,7 +28,9 @@ import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.compon
   ],
   declarations: [
     AppComponent,
-    AdminLayoutComponent
+    AdminLayoutComponent,
+    LoginComponent,
+    RegisterComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

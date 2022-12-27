@@ -8,9 +8,12 @@ import { LocationStrategy, PlatformLocation, Location } from '@angular/common';
 })
 export class AppComponent implements OnInit {
 
+    connected : boolean = false;
+
      constructor(public location: Location) {}
 
     ngOnInit(){
+      
     }
 
     isMap(path){

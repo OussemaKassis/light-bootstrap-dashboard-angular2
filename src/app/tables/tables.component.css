@@ -1,0 +1,60 @@
+.m-edit {
+    cursor: pointer;
+    border: 1px solid rgb(211, 211, 211);
+    transition: 0.5s all;
+    width: fit-content;
+    text-align: center;
+}
+
+.m-edit:hover {
+    background-color: rgb(218, 218, 218);
+}
+
+.m-delete {
+    cursor: pointer;
+    border: 1px solid rgb(211, 211, 211);
+    transition: 0.5s all;
+    width: fit-content;
+    text-align: center;
+}
+
+.m-delete:hover {
+    background-color: rgb(218, 218, 218);
+}
+
+.m-stop {
+    cursor: pointer;
+    border: 1px solid rgb(211, 211, 211);
+    transition: 0.5s all;
+    width: fit-content;
+    text-align: center;
+}
+
+.m-stop:hover {
+    background-color: rgb(218, 218, 218);
+}
+
+.pe-7s-edit {
+    margin: 5px 4px 0;
+    color: black;
+    font-size: 20px;
+}
+
+.pe-7s-trash {
+    margin: 5px 4px 0;
+    color: black;
+    font-size: 20px;
+}
+
+.pe-7s-close-circle {
+    margin: 5px 4px 0;
+    color: black;
+    font-size: 20px;
+}
+
+.m-action-buttons {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    column-gap: 5px;
+}

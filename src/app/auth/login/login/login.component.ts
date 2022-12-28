@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -12,7 +13,7 @@ export class LoginComponent implements OnInit {
     password: ""
   }
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
     localStorage.setItem('connected', 'false');
@@ -24,6 +25,8 @@ export class LoginComponent implements OnInit {
   submit() {
     console.log(this.cred);
     localStorage.setItem('connected', 'true');
+    localStorage.setItem('role', 'admin');
+    this.router.navigate(['./dashboard']);
   }
 
 }

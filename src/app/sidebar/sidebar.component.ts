@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 declare const $: any;
 declare interface RouteInfo {
@@ -21,15 +22,16 @@ export const ROUTES: RouteInfo[] = [
 
 export const ROUTESADMIN: RouteInfo[] = [
   { path: '/dashboard', title: 'Dashboard',  icon: 'pe-7s-graph', class: '' },
-  { path: '/create-user', title: 'Créer nouveau Utilisateur',  icon:'pe-7s-user', class: '' },
-  { path: 'users', title: 'Utilisateurs',  icon:'pe-7s-note2', class: '' },
-  { path: '/typography', title: 'Classes',  icon:'pe-7s-news-paper', class: '' },
+  { path: '/create-user', title: 'Créer Utilisateur',  icon:'pe-7s-user', class: '' },
+  { path: '/users', title: 'Utilisateurs',  icon:'pe-7s-note2', class: '' },
+  { path: '/new-classe', title: 'Créer classe',  icon:'pe-7s-news-paper', class: '' },
+  { path: '/classes', title: 'Classes',  icon:'pe-7s-news-paper', class: '' },
 ];
 
 export const ROUTESTEACHER: RouteInfo[] = [
   { path: '/dashboard', title: 'Dashboard',  icon: 'pe-7s-graph', class: '' },
   { path: '/create-user', title: 'User Profile',  icon:'pe-7s-user', class: '' },
-  { path: 'users', title: 'Table List',  icon:'pe-7s-note2', class: '' },
+  { path: '/users', title: 'Table List',  icon:'pe-7s-note2', class: '' },
   { path: '/typography', title: 'Typography',  icon:'pe-7s-news-paper', class: '' },
   { path: '/icons', title: 'Icons',  icon:'pe-7s-science', class: '' },
   { path: '/maps', title: 'Maps',  icon:'pe-7s-map-marker', class: '' },
@@ -40,7 +42,7 @@ export const ROUTESTEACHER: RouteInfo[] = [
 export const ROUTESAGENT: RouteInfo[] = [
   { path: '/dashboard', title: 'Dashboard',  icon: 'pe-7s-graph', class: '' },
   { path: '/create-user', title: 'User Profile',  icon:'pe-7s-user', class: '' },
-  { path: 'users', title: 'Table List',  icon:'pe-7s-note2', class: '' },
+  { path: '/users', title: 'Table List',  icon:'pe-7s-note2', class: '' },
   { path: '/typography', title: 'Typography',  icon:'pe-7s-news-paper', class: '' },
   { path: '/icons', title: 'Icons',  icon:'pe-7s-science', class: '' },
   { path: '/maps', title: 'Maps',  icon:'pe-7s-map-marker', class: '' },
@@ -57,9 +59,12 @@ export class SidebarComponent implements OnInit {
   role: String = "";
 
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
+    if(localStorage.getItem("connected") !== 'true'){
+      this.router.navigate(['./login']);
+    }
     this.role = localStorage.getItem("role");
     if(this.role == 'admin') {
       this.menuItems = ROUTESADMIN.filter(menuItem => menuItem);

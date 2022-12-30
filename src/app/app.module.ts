@@ -14,6 +14,8 @@ import { AppComponent } from './app.component';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { LoginComponent } from './auth/login/login/login.component';
 import { RegisterComponent } from './auth/register/register/register.component';
+import { ClassesComponent } from './classes/classes.component';
+import { ClasseComponent } from './classe/classe.component';
 
 @NgModule({
   imports: [
@@ -30,7 +32,9 @@ import { RegisterComponent } from './auth/register/register/register.component';
     AppComponent,
     AdminLayoutComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    ClassesComponent,
+    ClasseComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -62,7 +62,7 @@
                 <li><a href="#">Separated link</a></li>
               </ul>
         </li>
-        <li *ngIf="isMobileMenu()">
+        <li (click)="logOut()" *ngIf="isMobileMenu()">
             <a>
                 <p>Log out</p>
             </a>

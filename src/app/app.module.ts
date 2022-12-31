@@ -16,6 +16,9 @@ import { LoginComponent } from './auth/login/login/login.component';
 import { RegisterComponent } from './auth/register/register/register.component';
 import { ClassesComponent } from './classes/classes.component';
 import { ClasseComponent } from './classe/classe.component';
+import { UploadComponent } from './upload/upload.component';
+import { DocumentsComponent } from './documents/documents.component';
+import { FilesComponent } from './files/files.component';
 
 @NgModule({
   imports: [
@@ -34,7 +37,10 @@ import { ClasseComponent } from './classe/classe.component';
     LoginComponent,
     RegisterComponent,
     ClassesComponent,
-    ClasseComponent
+    ClasseComponent,
+    UploadComponent,
+    DocumentsComponent,
+    FilesComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -12,13 +12,13 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>Nom</label>
-                                        <input type="text" class="form-control" placeholder="Nom" value="">
+                                        <input type="text" id="nom" [(ngModel)]="cred.nom" class="form-control" placeholder="Nom" >
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>Prénom</label>
-                                        <input type="text" class="form-control" placeholder="Prénom" value="">
+                                        <input type="text" id="prenom" [(ngModel)]="cred.prenom" class="form-control" placeholder="Prénom" value="">
                                     </div>
                                 </div>
                             </div>
@@ -26,13 +26,13 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="exampleInputEmail1">Email</label>
-                                        <input type="email" class="form-control" placeholder="Email">
+                                        <input type="email" id="email" [(ngModel)]="cred.email" class="form-control" placeholder="Email">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>Mot de passe</label>
-                                        <input type="password" class="form-control" placeholder="Mot de passe" value="">
+                                        <input type="password" id="password" class="form-control" [(ngModel)]="cred.password" placeholder="Mot de passe" value="">
                                     </div>
                                 </div>
                             </div>
@@ -40,16 +40,16 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>Role</label>
-                                        <select class="form-control custom-select col-md-3" id="inlineFormCustomSelect">
-                                            <option selected>Choose...</option>
-                                            <option value="1">One</option>
-                                            <option value="2">Two</option>
-                                            <option value="3">Three</option>
+                                        <select class="form-control custom-select col-md-3" [(ngModel)]="cred.role" id="inlineFormCustomSelect">
+                                            <option selected value="..">Choose...</option>
+                                            <option value="ADMIN">Admin</option>
+                                            <option value="TEACHER">Enseignant</option>
+                                            <option value="AGENT">Agent de tirage</option>
                                         </select>
                                     </div>
                                 </div>
                             </div>
-                            <button type="submit" class="btn btn-info btn-fill pull-right">Créer profile</button>
+                            <button type="submit" (click)="submit()" class="btn btn-info btn-fill pull-right">Créer profile</button>
                             <div class="clearfix"></div>
                         </form>
                     </div>
@@ -60,20 +60,17 @@
                     <div class="image">
                         <img src="https://ununsplash.imgix.net/photo-1431578500526-4d9613015464?fit=crop&fm=jpg&h=300&q=75&w=400" alt="..."/>
                     </div>
-                    <div class="content">
+                    <div class="content" style="text-align: center;">
                         <div class="author">
                             <a href="#">
-                                <img class="avatar border-gray" src="assets/img/faces/face-3.jpg" alt="..."/>
+                                <img class="avatar border-gray" src="assets/img/faces/user.jpg" alt="..."/>
 
-                                <h4 class="title">Mike Andrew<br />
-                                    <small>michael24</small>
+                                <h4 class="title">{{cred.nom}} {{cred.prenom}}<br />
+                                    <small>{{cred.email}}</small>
                                 </h4>
                             </a>
                         </div>
-                        <p class="description text-center"> "Lamborghini Mercy <br>
-                            Your chick she so thirsty <br>
-                            I'm in that two seat Lambo"
-                        </p>
+                        {{cred.role}}
                     </div>
                     <hr>
                     <div class="text-center">

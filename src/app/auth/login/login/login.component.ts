@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from 'app/auth/service/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -13,7 +14,7 @@ export class LoginComponent implements OnInit {
     password: ""
   }
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private auth: AuthService) { }
 
   ngOnInit(): void {
     localStorage.setItem('connected', 'false');
@@ -24,9 +25,23 @@ export class LoginComponent implements OnInit {
 
   submit() {
     console.log(this.cred);
-    localStorage.setItem('connected', 'true');
-    localStorage.setItem('role', 'admin');
-    this.router.navigate(['./dashboard']);
+    this.auth.login(this.cred).subscribe({
+      next: (event: any) => {
+        localStorage.setItem('role',event.user.role);
+        localStorage.setItem('name',event.user.firstName + ' ' + event.user.lastName);
+        localStorage.setItem('id',event.user.id);
+        localStorage.setItem('connected', 'true');
+        this.router.navigate(['./dashboard']);
+      },
+      error: err => {
+        alert('could not connect');
+      },
+      complete: () => {
+      
+      }
+    });
+
+    
   }
 
 }

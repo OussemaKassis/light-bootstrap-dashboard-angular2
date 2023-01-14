@@ -1,5 +1,5 @@
 import { Component, OnInit, ElementRef } from '@angular/core';
-import { ROUTES } from '../../sidebar/sidebar.component';
+import { ROUTES, ROUTESADMIN, ROUTESAGENT, ROUTESTEACHER } from '../../sidebar/sidebar.component';
 import {Location, LocationStrategy, PathLocationStrategy} from '@angular/common';
 import { Router } from '@angular/router';
 
@@ -21,7 +21,16 @@ export class NavbarComponent implements OnInit{
     }
 
     ngOnInit(){
-      this.listTitles = ROUTES.filter(listTitle => listTitle);
+        if(localStorage.getItem("role")=="admin"){
+
+            this.listTitles = ROUTESADMIN.filter(listTitle => listTitle);
+        }
+        else if(localStorage.getItem("role")=="teacher") {
+            this.listTitles = ROUTESTEACHER.filter(listTitle => listTitle);
+        }
+        else if(localStorage.getItem("role")=="agent") {
+            this.listTitles = ROUTESAGENT.filter(listTitle => listTitle);
+        }
       const navbar: HTMLElement = this.element.nativeElement;
       this.toggleButton = navbar.getElementsByClassName('navbar-toggle')[0];
     }

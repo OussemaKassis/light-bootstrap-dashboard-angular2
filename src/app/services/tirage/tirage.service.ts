@@ -13,4 +13,8 @@ export class TirageService {
     return this.http.post(sharedConsts.API_ENDPOINT + '/tirage/save', credentials);
   }
 
+  public getTirages() {
+    return this.http.get(sharedConsts.API_ENDPOINT + '/tirage');
+  }
+
 }

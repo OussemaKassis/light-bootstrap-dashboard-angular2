@@ -33,6 +33,10 @@ export class UsersService {
     return this.http.post(sharedConsts.API_ENDPOINT + '/user/delete/'+id, id);
   }
 
+  public login(credentials: any) {
+    return this.http.post(sharedConsts.API_ENDPOINT + '/user/login', credentials);
+  }
+
   //tobefixed
   public changeUserStatus(credentials: any) {
     return this.http.post(sharedConsts.API_ENDPOINT + '/user/changeStatus', credentials);

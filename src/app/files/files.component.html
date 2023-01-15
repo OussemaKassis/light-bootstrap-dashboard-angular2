@@ -16,7 +16,7 @@
                                 </thead>
                                 <tbody>
                                     <tr *ngFor="let row of tableData1.dataRows">
-                                        <td *ngFor="let cell of row">{{cell}}</td>
+                                        <td *ngFor="let cell of row"><div [innerHTML]="cell"></div></td>
                                         <td class="m-action-buttons">
                                             <div class="m-edit" (click)="editUser(row[0])"><i class="pe-7s-edit"></i></div>
                                             <div class="m-delete" (click)="deleteUser(row[0])"><i class="pe-7s-trash"></i></div>

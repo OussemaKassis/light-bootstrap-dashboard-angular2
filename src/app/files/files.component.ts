@@ -21,7 +21,7 @@ export class FilesComponent implements OnInit {
             headerRow: [ 'ID', 'Nom', 'Prenom', 'Email', 'Role', 'Statut', 'Action'],
             dataRows: [
                 ['1', 'Dakota Rice', 'Niger', 'Oud-Turnhout', 'Teacher', 'Active'],
-                ['2', 'Minerva Hooper', 'Curaçao', 'Sinaai-Waas', 'Teacher', 'Active'],
+                ['2', 'Minerva Hooper', 'Curaçao', '<a href="c://programmes/google/">download</a>', 'Teacher', 'Active'],
                 ['3', 'Sage Rodriguez', 'Netherlands', 'Baileux', 'Teacher', 'Active'],
                 ['4', 'Philip Chaney', 'Korea, South', 'Overland Park', 'Teacher', 'Active'],
                 ['5', 'Doris Greene', 'Malawi', 'Feldkirchen in Kärnten', 'Agent de tirage', 'Active'],

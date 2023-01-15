@@ -18,6 +18,12 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     localStorage.setItem('connected', 'false');
+    localStorage.removeItem('role');
+    localStorage.removeItem('id');
+    localStorage.removeItem('name');
+
+
+
     $('.message a').click(function(){
       $('form').animate({height: "toggle", opacity: "toggle"}, "slow");
    });
@@ -27,17 +33,21 @@ export class LoginComponent implements OnInit {
     console.log(this.cred);
     this.auth.login(this.cred).subscribe({
       next: (event: any) => {
-        localStorage.setItem('role',event.user.role);
-        localStorage.setItem('name',event.user.firstName + ' ' + event.user.lastName);
-        localStorage.setItem('id',event.user.id);
-        localStorage.setItem('connected', 'true');
-        this.router.navigate(['./dashboard']);
+        if(!(event === null || event === "")) {
+          localStorage.setItem('role',event.role);
+          localStorage.setItem('name',event.nom + ' ' + event.prenom);
+          localStorage.setItem('id',event.id);
+          localStorage.setItem('connected', 'true');
+          this.router.navigate(['./dashboard']);
+        }else {
+          alert('user not found');
+        }
       },
       error: err => {
         alert('could not connect');
       },
       complete: () => {
-      
+
       }
     });
 

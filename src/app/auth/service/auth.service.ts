@@ -10,7 +10,7 @@ export class AuthService {
   constructor(private http: HttpClient) { }
 
   public login(credentials: any) {
-    return this.http.post(sharedConsts.API_ENDPOINT + '/user/getUser', credentials);
+    return this.http.post(sharedConsts.API_ENDPOINT + '/user/login', credentials);
   }
 
   register(credentials: any) {

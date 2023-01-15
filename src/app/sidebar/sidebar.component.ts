@@ -56,11 +56,11 @@ export class SidebarComponent implements OnInit {
       this.router.navigate(['./login']);
     }
     this.role = localStorage.getItem("role");
-    if(this.role == 'admin') {
+    if(this.role == 'ADMIN') {
       this.menuItems = ROUTESADMIN.filter(menuItem => menuItem);
-    }else if(this.role == 'teacher') {
+    }else if(this.role == 'TEACHER') {
       this.menuItems = ROUTESTEACHER.filter(menuItem => menuItem);
-    }else{
+    }else if((this.role == 'AGENT') ){
       this.menuItems = ROUTESAGENT.filter(menuItem => menuItem);
     }
   }

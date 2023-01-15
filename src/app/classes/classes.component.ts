@@ -23,7 +23,6 @@ export class ClassesComponent implements OnInit {
         this.tableData1 = {
             headerRow: [ 'ID', 'Nom', 'Niveau', 'Departement', 'Nombres étudiants', 'Statut', 'Action'],
             dataRows: [
-                
             ]
         };
 
@@ -34,9 +33,9 @@ export class ClassesComponent implements OnInit {
                       [
                           element[1].id,
                           element[1].nom,
-                          element[1].prenom,
-                          element[1].email,
-                          element[1].role,
+                          element[1].niveau,
+                          element[1].departement,
+                          element[1].nbrEtudients,
                           element[1].status
                       ]);
               });

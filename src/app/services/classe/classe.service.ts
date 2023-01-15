@@ -22,7 +22,8 @@ export class ClasseService {
   }
 
   public getClasses() {
-    return this.http.get(sharedConsts.API_ENDPOINT + '/classe');
+    alert('im heeeeeere');
+    return this.http.get('http://192.168.191.73:9000/classe');
   }
 
   public addClasse(classe: any) {

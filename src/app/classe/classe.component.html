@@ -11,14 +11,31 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label>numéro classe</label>
-                                        <input type="text" class="form-control" placeholder="Numéro classe" value="">
+                                        <label>Nom classe</label>
+                                        <input type="text" class="form-control" [(ngModel)]="classe.nom" placeholder="Nom classe" value="">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>Niveau du classe</label>
-                                        <input type="text" class="form-control" placeholder="Niveau du classe" value="">
+                                        <input type="text" class="form-control" [(ngModel)]="classe.niveau" placeholder="Niveau du classe" value="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Departement</label>
+                                        <input type="text" class="form-control" [(ngModel)]="classe.departement" placeholder="Departement" value="">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Enseignant</label>
+                                        <select class="form-control custom-select col-md-3" [(ngModel)]="classe.teacherId" id="inlineFormCustomSelect">
+                                            <option selected>Enseignant...</option>
+                                            <option *ngFor="let user of users" value="{{user.id}}">{{user.nom}} {{user.prenom}}</option>
+                                        </select>
                                     </div>
                                 </div>
                             </div>
@@ -26,22 +43,40 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>Nombre étudients</label>
-                                        <input type="text" class="form-control" placeholder="Nombre étudients" value="">
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label>Enseignant</label>
-                                        <select class="form-control custom-select col-md-3" id="inlineFormCustomSelect">
-                                            <option selected>Enseignant...</option>
-                                            <option value="1">One</option>
-                                            <option value="2">Two</option>
-                                            <option value="3">Three</option>
-                                        </select>
+                                        <input type="text" class="form-control" [(ngModel)]="classe.nbrEtudients" placeholder="Nombre étudients" value="">
                                     </div>
                                 </div>
                             </div>
-                            <button type="submit" class="btn btn-info btn-fill pull-right">Créer classe</button>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Matiere</label>
+                                    <select class="form-control custom-select col-md-3" [(ngModel)]="classe.matiereVal" id="inlineFormCustomSelect">
+                                        <option selected>Matiere...</option>
+                                        <option *ngFor="let matiere of matieres" value="{{matiere.id}}/{{matiere.nom}}">{{matiere.nom}}</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-info btn-fill pull-right" (click)="createClasse()">Créer classe</button>
+                            <div class="clearfix"></div>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="header">
+                        <h4 class="title">Créer une nouvelle matiere</h4>
+                    </div>
+                    <div class="content">
+                        <form>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Nom matiere</label>
+                                        <input type="text" class="form-control" [(ngModel)]="matiere.nom" placeholder="Nom matiere" value="">
+                                    </div>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-info btn-fill pull-right" (click)="createMatiere()">Créer matiere</button>
                             <div class="clearfix"></div>
                         </form>
                     </div>

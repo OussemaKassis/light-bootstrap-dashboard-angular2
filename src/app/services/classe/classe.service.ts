@@ -9,24 +9,29 @@ export class ClasseService {
 
   constructor(private http: HttpClient) { }
 
+  public addMatiere(matiere) {
+    return this.http.post(sharedConsts.API_ENDPOINT + '/classe/matiere/save', matiere);
+  }
+
+  public getMatieres() {
+    return this.http.get(sharedConsts.API_ENDPOINT + '/classe/matiere/');
+  }
+
   public editClasse(credentials: any) {
-    return this.http.post(sharedConsts.API_ENDPOINT + '/user/update', credentials);
+    return this.http.post(sharedConsts.API_ENDPOINT + '/classe/update', credentials);
   }
 
-  public addMatiere() {
-    return this.http.get(sharedConsts.API_ENDPOINT + '/user/getUsers');
+  public getClasses() {
+    return this.http.get(sharedConsts.API_ENDPOINT + '/classe');
   }
 
-  public addClasse(id: String) {
-    return this.http.get(sharedConsts.API_ENDPOINT + '/user/getUser/'+id);
+  public addClasse(classe: any) {
+    return this.http.post(sharedConsts.API_ENDPOINT + '/classe/save', classe);
   }
 
-  public deleteUser(id: String) {
-    return this.http.post(sharedConsts.API_ENDPOINT + '/user/delete/'+id, id);
-  }
-
+  
   //tobefixed
   public changeUserStatus(credentials: any) {
-    return this.http.post(sharedConsts.API_ENDPOINT + '/user/changeStatus', credentials);
+    return this.http.post(sharedConsts.API_ENDPOINT + '/classe/changeStatus', credentials);
   }
 }
